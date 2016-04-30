@@ -2,3 +2,18 @@
 
 /* Note: an asteroid image is included in this repo.
 Feel free to use it if you like. */
+
+svg {
+  border: 1px black solid;
+}
+
+div .tube {
+  display: inline-block;
+  width: 20px;
+  height: 75px;   /* We'll override this later */
+  background-color: green;
+}
+
+#flappy {
+  border: 1px solid black;
+}
