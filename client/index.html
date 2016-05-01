@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Flappy Bird</title>
+  <title>Asteroids</title>
     <script src="lib/jquery.js"></script>
     <link rel='stylesheet' type='text/css' href='styles.css'>
   </head>
   <body>
 
     <div id="board"></div>  
-      <div class="tube"></div>
-    </div>
-
-
+    <div id="player"></div>
     <div class="scoreboard">
       <!-- Modify the scoreboard when important events occur in your game! -->
       <div class="highscore">High score: <span>0</span></div>
       <div class="current">Current score: <span>0</span></div>
-      <div class="collisions">Collisions: <span>0</span></div>
+      <div class="collisions">Collisions: <span>0</span></div>  
     </div>
-    <div class="board"><div class="mouse"></div></div>
 
 
     <!-- Scripts -->
     <script src="lib/d3.js" charset="utf-8"></script>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src='watchout.js'></script>
   </body>
 </html>
