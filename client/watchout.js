@@ -1,23 +1,26 @@
+/*******************Global Variables*******************/
+
 var currentScore = 0;
 var bestScore = 0;
 var collisions = 0;
 var numEnemies = 20;
 var width = 800;
 var height = 500;
+var radius = 25;
 
-//Board
+/*******************Board*******************/
 
 var canvas = d3.select('body')
             .append('svg')
             .attr({'width': width, 'height': height});
 
-//Player
+/*******************Player*******************/
 
 var drag = d3.behavior.drag()
              .on('drag', function() {
                player.attr({
-                 'cx': Math.max(25, Math.min(width - 25, d3.event.x)),
-                 'cy': Math.max(25, Math.min(height - 25, d3.event.y))
+                 'cx': Math.max(radius, Math.min(width - radius, d3.event.x)),
+                 'cy': Math.max(radius, Math.min(height - radius, d3.event.y))
                });
              });
 
@@ -32,13 +35,13 @@ var player = canvas.selectAll('#player')
                     'cy': function(d) {
                       return d.y;
                     },
-                    'r': 25,
+                    'r': radius,
                     'id': 'player',
                     'fill': 'red'
                   })
                   .call(drag);
 
-//Scores
+/*******************Scores*******************/
 
 var updateScores = function() {
   d3.select('.current').select('span').text(currentScore++);
@@ -48,7 +51,8 @@ var updateScores = function() {
   }
 };
 
-//Enemies
+/*******************Enemies*******************/
+
 var enemies = [];
 
 for (var i = 0; i < numEnemies; i++) {
@@ -87,16 +91,25 @@ var move = function() {
           'cy': function() {
             return (Math.random() * height);
           },
-          'r': (Math.random() * 25) + 5
+          'r': (Math.random() * radius) + 5
         });
 };
 
-//Collisions
+/*******************Collisions*******************/
+
+var checkCollision = function(d, i) {
+
+};
 
 
+/*******************Functions*******************/
 
+d3.timer(function() {
+  // createEnemies.each(function(d, i) {
+  //   checkCollision(d, i);
+  // });
+});
 
-//Invocation of functions
+setInterval(updateScores, 250);
 
-setInterval(updateScores, 1000);
 setInterval(move, 2000);
